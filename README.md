@@ -1,35 +1,34 @@
-[![Build Status](https://travis-ci.com/givanthak/spring-boot-rest-api-tutorial.svg?branch=master)](https://travis-ci.com/givanthak/spring-boot-rest-api-tutorial)
-[![Known Vulnerabilities](https://snyk.io/test/github/givanthak/spring-boot-rest-api-tutorial/badge.svg)](https://snyk.io/test/github/givanthak/spring-boot-rest-api-tutorial)
+# Ldap Connector to management user
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://dxnet.io)
 
+## REST API project using Spring Boot, H2, Ldap Connector to management user in ldap
 
-
-# Sample REST CRUD API with Spring Boot, Mysql, JPA and Hibernate 
-
-## Steps to Setup
-
+###  Steps to Setup
 **1. Clone the application**
-
-```bash
-https://github.com/givanthak/spring-boot-rest-api-tutorial.git
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/josemmarneca/ManagementUsersLdap.git)
 ```
-
-**2. Create Mysql database**
-```bash
-create database user_database
+https://github.com/josemmarneca/ManagementUsersLdap.git
 ```
-
-**3. Change mysql username and password as per your installation**
+**2. Configure application properties with ldap properties**
 
 + open `src/main/resources/application.properties`
 
-+ change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
++ change 
+```  
+        ldap.url=ldap://ip:port
+        ldap.base=DC=dxnet,DC=lab
+        ldap.principal=CN=User Admin,OU=Group
+        ldap.password=123456789
+        ldap.referral=follow
+        ldap.load.groups=CN=Users,OU=Persons
+        ldap.load.filter=person,user
+```
 
 **4. Build and run the app using maven**
 
 ```bash
 mvn package
-java -jar target/spring-boot-rest-api-tutorial-0.0.1-SNAPSHOT.jar
-
+java -jar target/ldap-connector-0.0.1-SNAPSHOT.jar
 ```
 
 Alternatively, you can run the app without packaging it using -
@@ -38,22 +37,72 @@ Alternatively, you can run the app without packaging it using -
 mvn spring-boot:run
 ```
 
-The app will start running at <http://localhost:8080>.
-
+The app will start running at <http://localhost:8095>.
 ## Explore Rest APIs
 
-The app defines following CRUD APIs.
+The app defines following CRUD APIs. 
+ + USER 
+    ```
+    GET /api/v1/user/get/all
+    
+    GET /api/v1/user/get/{userName}
+    
+    POST /api/v1/user/create
+    
+    POST /api/v1/user/login
+    
+    PUT /api/v1/user/update
+    
+    DELETE /api/v1/user/delete
+    ```
 
-    GET /api/v1/users
+ + LDAP 
+    ```
+    GET /api/v1/ldap/get/all/group/{group}
     
-    POST /api/v1/users
+    GET /api/v1/ldap/get/user/{userDn}
     
-    GET /api/v1/users/{userId}
+    PUT /api/v1/ldap/update/user
     
-    PUT /api/v1/users/{userId}
-    
-    DELETE /api/v1/users/{userId}
+    DELETE /api/v1/ldap/delete/user
 
-You can find the tutorial for this application on my blog -
+    ```
+    
 
-<https://www.prathapgivantha.wordpress.com>
+You can find the properties in LDAP
+http://www.kouti.com/tables/userattributes.htm
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+### Development
+
+Want to contribute? Great!
+
+Dillinger uses Gulp + Webpack for fast developing.
+Make a change in your file and instantanously see your updates!
+
+Open your favorite Terminal and run these commands.
+
+First Tab:
+```sh
+$ node app
+```
+
+Second Tab:
+```sh
+$ gulp watch
+```
+
+(optional) Third:
+```sh
+$ karma test
+```
+ 
