@@ -77,32 +77,13 @@ http://www.kouti.com/tables/userattributes.htm
 
  
 
- 
-
- 
-
 
 ### Development
 
-Want to contribute? Great!
+If you want import the jar from your project
 
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantanously see your updates!
+you only need to extends class usex and add more attributes.
 
-Open your favorite Terminal and run these commands.
+And user services
 
-First Tab:
-```sh
-$ node app
-```
-
-Second Tab:
-```sh
-$ gulp watch
-```
-
-(optional) Third:
-```sh
-$ karma test
-```
  
