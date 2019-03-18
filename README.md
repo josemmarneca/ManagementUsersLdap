@@ -1,5 +1,5 @@
 # Ldap Connector to management user
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://dxnet.io)
+[![N|Solid](http://www.dxnet.io/dxnet-logo.png)](https://dxnet.io)
 
 ## REST API project using Spring Boot, H2, Ldap Connector to management user in ldap
 
