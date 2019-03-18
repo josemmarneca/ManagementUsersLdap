@@ -80,10 +80,10 @@ http://www.kouti.com/tables/userattributes.htm
 
 ### Development
 
-If you want import the jar from your project
+If you want import the jar from your project and use service to get, create, update, delete, login in ldap
 
-you only need to extends class usex and add more attributes.
+you only need to extends class com.dxnet.ldap.database.entities.Usex and add to your class, more public attributes.
 
-And user services
+After that you can use com.dxnet.ldap.services.LdapServiceImpl with your class
 
  
