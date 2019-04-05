@@ -47,6 +47,8 @@ public class Usex extends BaseEntityActiveAudit {
     @Column(name = "sAMAccountType")
     public String sAMAccountType;
 
+    @Column
+    public String ipPhone;
 
 
     @NotNull
@@ -231,5 +233,13 @@ public class Usex extends BaseEntityActiveAudit {
 
     public void setHomePhone(String homePhone) {
         this.homePhone = homePhone;
+    }
+
+    public String getIpPhone() {
+        return ipPhone;
+    }
+
+    public void setIpPhone(String ipPhone) {
+        this.ipPhone = ipPhone;
     }
 }

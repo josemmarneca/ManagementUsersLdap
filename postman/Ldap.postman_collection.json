@@ -1,0 +1,293 @@
+{
+	"info": {
+		"name": "Ldap",
+		"_postman_id": "79a1612c-e96d-33bd-f0df-4f434da40c2f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ldapServices",
+			"description": "",
+			"item": [
+				{
+					"name": "Get All User in Ldap",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/v1/ldap/get/all/group/CN=Users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"ldap",
+								"get",
+								"all",
+								"group",
+								"CN=Users"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User in Ldap",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/v1/ldap/get/user/Master Marneca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"ldap",
+								"get",
+								"user",
+								"Master Marneca"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update User in Ldap copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": null,\n    \"version\": null,\n    \"createdBy\": null,\n    \"updatedBy\": null,\n    \"firstName\": null,\n    \"lastName\": \"Person\",\n    \"fullName\": \"Master Marneca\",\n    \"whenCreated\": \"20190314152731.0Z\",\n    \"objectCategory\": null,\n    \"mail\": null,\n    \"memberof\": null,\n    \"objectClass\": \"CN=Person,CN=Schema,CN=Configuration,DC=cilnet,DC=lab\",\n    \"distinguishedname\": \"CN=Master Marneca,CN=Users,DC=cilnet,DC=lab\",\n    \"userPassword\": null,\n    \"telephoneNumber\": null,\n    \"homephone\": null,\n    \"primaryGroupID\": null,\n    \"samAccountName\": null,\n    \"samAccountType\": null,\n    \"dn\": \"CN=Master Marneca,CN=Users\",\n    \"userprincipalname\": null,\n    \"department\": null,\n    \"company\": null,\n    \"streetAddress\": null,\n    \"st\": null,\n    \"postalCode\": null,\n    \"l\": null,\n    \"description\": null,\n    \"c\": null,\n    \"countryCode\": null,\n    \"sn\": \"Person\",\n    \"employeeID\": null,\n    \"lastLogon\": null,\n    \"givenname\": null,\n    \"logoncount\": null,\n    \"displayName\": null\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/ldap/update/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"ldap",
+								"update",
+								"user"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete User in Ldap",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \n    \"dn\": \"CN=Master Marneca,CN=Users\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/ldap/delete/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"ldap",
+								"delete",
+								"user"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login LDAP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cn\": \"Configuração AD\",\n    \"secret\": \"12345\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/user/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"login"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All User in Database",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/api/v1/user/get/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"get",
+						"all"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by full name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/api/v1/user/get/Client Master",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"get",
+						"Client Master"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"cn\": \"Client Master\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/user/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"create"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update User in Database",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cn\": \"Client Master\",\n    \"sn\": \"updated sucess\",\n    \"homePhone\": \"9128872828\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/user/update",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"update"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete User in Database",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"cn\": \"Client Master\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/user/delete",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"delete"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

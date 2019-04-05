@@ -7,9 +7,11 @@ import com.dxnet.ldap.configs.LdapApplicationProperties;
 import com.dxnet.ldap.database.entities.Usex;
 import com.dxnet.ldap.exception.LdapException;
 import com.dxnet.ldap.mappers.UsexAttributesMapper;
+import com.dxnet.ldap.services.properties.ServiceProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.ldap.core.*;
 import org.springframework.ldap.filter.AbstractFilter;
 import org.springframework.ldap.filter.AndFilter;
@@ -27,9 +29,12 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
+@EnableConfigurationProperties(ServiceProperties.class)
 public class LdapServiceImpl {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+
+    private final ServiceProperties serviceProperties;
 
     @Autowired
     DirContext dirContext;
@@ -43,6 +48,14 @@ public class LdapServiceImpl {
     @Autowired
     LdapApplicationProperties ldapApplicationProperties;
 
+
+    public LdapServiceImpl(ServiceProperties serviceProperties){
+        this.serviceProperties=serviceProperties;
+    }
+
+    public String msg(){
+        return this.serviceProperties.getMsg();
+    }
     /**
      * Get all user model from lDPA
      *
